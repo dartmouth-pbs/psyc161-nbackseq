@@ -48,7 +48,7 @@ def check_nbackseq_unique(n, sequence):
     return False in repetitions
 
 def nbackseq(n, l, words):
-    if len(words) == n:
+    if len(words) <= n:
         raise ValueError("Number of items needs to be greater than n-back!")
     else:
         seq = make_nbackseq(l, words)
@@ -65,7 +65,7 @@ if __name__ == '__main__':
     #words = sys.argv[3]
     words = sys.argv[3:]
 
-    if len(words) == n:
+    if len(words) <= n:
         raise ValueError("Number of items needs to be greater than n-back!")
     else:
         s = nbackseq(n, l, words)
