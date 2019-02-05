@@ -3,8 +3,30 @@ import sys
 
 
 def nbackseq(n, length, words):
+    """Generate n-back balanced sequences
+
+    Parameters
+    ----------
+    n : int
+        How many characters (including the current one) to look
+        back to assure no duplicates
+    length : int
+        The total length of the sequence to produce
+    words : list
+        A list of words to be used to generate sequences
+
+    Returns
+    -------
+    list
+        A list of solutions, where each solution is a list of words
+        of length `length`
+
+    """
     pass
 
 
 if __name__ == '__main__':
-    print(sys.argv)
+    n = sys.argv[1]
+    length = sys.argv[2]
+    words = sys.argv[3:]
+    print(nbackseq(n, length, words))
