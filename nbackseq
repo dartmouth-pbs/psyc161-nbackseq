@@ -25,8 +25,15 @@ def nbackseq(n, length, words):
     pass
 
 
+def test_nbackseq():
+    assert nbackseq(1, 1, ['a']) == [['a']]
+    assert nbackseq(2, 2, [1, 2]) == [[1, 2], [2, 1]]
+    assert nbackseq(1, 2, [1, 2]) == [[1, 1], [1, 2], [2, 1], [2, 2]]
+    assert nbackseq(2, 1, [1, 2]) == None
+
+
 if __name__ == '__main__':
-    n = sys.argv[1]
-    length = sys.argv[2]
+    n = int(sys.argv[1])
+    length = int(sys.argv[2])
     words = sys.argv[3:]
     print(nbackseq(n, length, words))
