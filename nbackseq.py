@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import random
 import sys
 
 
@@ -22,14 +23,27 @@ def nbackseq(n, length, words):
         of length `length`
 
     """
-    pass
+    solutions = []
+
+    solution = random.sample(words, length)
+    # validate that the sequence is correct n-back sequence
+    good = True
+    for index in range(len(solution)):
+        subseq = solution[index-(n-1): index]
+        if len(set(subseq)) != n:
+            good = False
+            break
+    if good:
+        solutions.append(solution)
+
+    return solutions
 
 
 def test_nbackseq():
+    assert nbackseq(2, 1, [1, 2]) == []
     assert nbackseq(1, 1, ['a']) == [['a']]
     assert nbackseq(2, 2, [1, 2]) == [[1, 2], [2, 1]]
     assert nbackseq(1, 2, [1, 2]) == [[1, 1], [1, 2], [2, 1], [2, 2]]
-    assert nbackseq(2, 1, [1, 2]) == None
 
 
 if __name__ == '__main__':
