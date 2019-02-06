@@ -51,5 +51,9 @@ def test_nbackseq():
 if __name__ == '__main__':
     n = int(sys.argv[1])
     length = int(sys.argv[2])
-    words = ast.literal_eval(sys.argv[3])
+    try:
+        words = ast.literal_eval(sys.argv[3])
+    except:
+        raise ValueError("'words' parameter needs to be a literal (e.g. '[1, 2]' with the quotes!")
     solutions = nbackseq(n, length, words)
+    print(solutions)
